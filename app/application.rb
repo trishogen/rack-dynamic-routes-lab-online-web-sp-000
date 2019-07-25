@@ -11,6 +11,7 @@ class Application
 
     if req.path.match(/items/)
       search_item = req.path.split("/items/").last
+      binding.pry
       if @@items.include?(search_item)
         item = @@items.select {|item| item.name == search_item}
         print item
