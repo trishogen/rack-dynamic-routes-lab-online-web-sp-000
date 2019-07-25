@@ -9,9 +9,8 @@ class Application
     if req.path.match(/items/)
       search_item = req.path.split("/items/").last
       item = @@items.select {|item| item.name == search_item}
-      print item
-      if item
-        #resp.write item.price
+      if not item == []
+        resp.write item.price
       else
         resp.write "Item not found"
         resp.status = 400
