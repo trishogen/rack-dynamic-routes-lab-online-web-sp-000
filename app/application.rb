@@ -10,6 +10,7 @@ class Application
       search_item = req.path.split("/items/").last
 
       if @@items.include?(search_item)
+        print(search_item)
         item = @@items.select {|item| item.name == search_item}
         resp.write item.price
       else
