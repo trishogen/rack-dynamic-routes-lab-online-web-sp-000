@@ -11,13 +11,12 @@ class Application
 
       if @@items.include?(search_item)
         item = @@items.select {|item| item.name == search_item}
-        print item
         resp.write item.price
       else
         resp.write "Item not found"
         resp.status = 400
       end
-      
+
     else
       resp.write "Route not found"
       resp.status = 404
