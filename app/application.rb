@@ -8,11 +8,8 @@ class Application
 
     if req.path.match(/items/)
       search_item = req.path.split("/items/").last
-      print @@items
-      print search_item
-
-      if @@items.include?(search_item)
-        item = @@items.select {|item| item.name == search_item}
+      item = @@items.select {|item| item.name == search_item}
+      if item
         resp.write item.price
       else
         resp.write "Item not found"
